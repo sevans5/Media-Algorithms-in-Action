@@ -5,40 +5,112 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 
-
 import { useState } from 'react';
 
 import '../styles.css'
 import photo from '../assets/placeholder.jpeg'
+import one from '../assets/image 1.jpg'
+import two from '../assets/image 2.jpg'
+import three from '../assets/image 3.jpg'
+import four from '../assets/image 4.png'
+import five from '../assets/image 5.png'
+import six from '../assets/image 6.png'
+import seven from '../assets/image 7.png'
+import eight from '../assets/image 8.png'
+import nine from '../assets/image 9.png'
+import ten from '../assets/image 10.png'
+import eleven from '../assets/image 11.png'
+import twelve from '../assets/image 12.png'
+
+import rone from '../assets/result 1.jpg'
+import rtwo from '../assets/result 2.jpg'
+import rthree from '../assets/result 3.jpg'
+import rfour from '../assets/result four.png'
+import rfive from '../assets/result five.jpeg'
+import rsix from '../assets/result six.jpeg'
+import rseven from '../assets/result 7.png'
+import reight from '../assets/result 8.jpeg'
+import rnine from '../assets/result 9.jpg'
+import rten from '../assets/result 10.jpg'
+import releven from '../assets/result 11.jpg'
+
 
 
 const Content = (props) => {
 
 const info = [
     {
-        content: "nature", 
-        color: "green"
+        content: "happy", 
+        interest: "pets",
+        location: "south",
+        politics: "liberal"
     }, 
     {
-        content: "city", 
-        color: "blue"
+        content: "practical", 
+        interest: "clothing",
+        location: "west coast",
+        politics: "liberal"
     }, 
     {
-        content: "space", 
-        color: "black"
+        content: "entertainment", 
+        interest: "sports",
+        location: "east coast",
+        politics: "undetermined"
     },
     {
-        content: "space", 
-        color: "green"
+        content: "happy", 
+        interest: "entertainment",
+        location: "east coast",
+        politics: "undetermined"
     }, 
     {
-        content: "city", 
-        color: "green"
+        content: "practical", 
+        interest: "entertainment",
+        location: "west coast",
+        politics: "liberal"
     }, 
     {
-        content: "nature", 
-        color: "green"
+        content: "entertainment", 
+        interest: "clothing",
+        location: "west coast",
+        politics: "liberal"
+    },{
+        content: "practical", 
+        interest: "clothing",
+        location: "east coast",
+        politics: "liberal"
+    }, 
+    {
+        content: "entertainment", 
+        interest: "sports",
+        location: "west coast",
+        politics: "undetermined"
+    }, 
+    {
+        content: "practical", 
+        interest: "pets",
+        location: "south",
+        politics: "undetermined"
     },
+    {
+        content: "entertainment", 
+        interest: "clothing",
+        location: "east coast",
+        politics: "undetermined"
+    }, 
+    {
+        content: "happy", 
+        interest: "sports",
+        location: "south",
+        politics: "undetermined"
+    }, 
+    {
+        content: "entertainment", 
+        interest: "clothing",
+        location: "east coast",
+        politics: "liberal"
+    },
+
 ]
 
 const [selectedImgIndexes, setSelectedImgIndexes] = useState([])
@@ -51,9 +123,13 @@ const addImgs = (number) => {
         numbers = [0,1,2]
     }else if (number >= 3 && number <= 5){
         numbers = [3,4,5]
+    }else if(number >= 6 && number <=8) {
+        numbers = [6,7,8]
+    }else if(number >= 9 && number <= 10) {
+        numbers = [9,10]
     }
 
-    console.log("here")
+    // console.log("here")
     var temp = selectedImgIndexes
     for(var i = 0; i < numbers.length; i++){
         if(temp.includes(numbers[i])){
@@ -86,48 +162,213 @@ const displayAnalysis = () => {
         console.log(`your color was ${selectedImg.color}`);
     }
 
-    for(var i = 0; i < finalObjs.length; i++){
 
-    }
     var s_content = finalObjs.reduce(function(sums, entry){
         sums[entry.content] = (sums[entry.content] || 0) + 1
         return sums
     }, {});
-    var s_color = finalObjs.reduce(function(sums, entry){
-        sums[entry.color] = (sums[entry.color] || 0) + 1
+
+    var s_interest = finalObjs.reduce(function(sums, entry){
+        sums[entry.interest] = (sums[entry.interest] || 0) + 1
         return sums
     }, {});
+
+    var s_location = finalObjs.reduce(function(sums, entry){
+        sums[entry.location] = (sums[entry.location] || 0) + 1
+        return sums
+    }, {});
+
+    var s_politics = finalObjs.reduce(function(sums, entry){
+        sums[entry.politics] = (sums[entry.politics] || 0) + 1
+        return sums
+    }, {});
+
     var final_content = Object.keys(s_content).reduce((a,b) => {return s_content[a] > s_content[b] ? a : b}) 
     console.log(final_content)
 
-    var final_color = Object.keys(s_color).reduce((a,b) => {return s_color[a] > s_color[b] ? a : b})
-    console.log(final_color)
+    var final_interest = Object.keys(s_interest).reduce((a,b) => {return s_interest[a] > s_interest[b] ? a : b})
+    console.log(final_interest)
+
+    var final_location = Object.keys(s_location).reduce((a,b) => {return s_location[a] > s_location[b] ? a : b}) 
+    console.log(final_location)
+
+    var final_politics = Object.keys(s_politics).reduce((a,b) => {return s_politics[a] > s_politics[b] ? a : b})
+    console.log(final_politics)
 
     switch(final_content){
-        case "nature":
-            objToReturn.push(
-            <Image key={0} src={photo} width="90%" height="50%"></Image>
+        case "happy":
+            objToReturn.push
+            (
+            <Row key={0} className="analysis container-1">
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in happy content.
+                    Here's a future instagram post that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rone} width="50%"></Image>
+                </Col>
+            </Row>
             )
             break;
-        case "space":
-            objToReturn.push(<p key={1}>space return</p>)
+        case "practical":
+            objToReturn.push
+            (
+            <Row key={1} className="analysis container-1">
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in practical content.
+                    Here's a future instagram post that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rtwo} width="50%"></Image>
+                </Col>
+            </Row>
+            )
             break;
-        case "city":
-            objToReturn.push(<p key={2}>city return</p>)
+        case "entertainment":
+            objToReturn.push
+            (
+            <Row key={2} className="analysis container-1">
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in entertainment content.
+                    Here's a future instagram post that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rthree} width="50%"></Image>
+                </Col>
+            </Row>
+            )
             break;
     }
 
-    switch(final_color){
-        case "green":
-            objToReturn.push(
-            <Image key={3} src={photo} width="90%" height="50%"></Image>
+    switch(final_interest){
+        case "clothing":
+            objToReturn.push
+            (
+            <Row key={3} className="analysis container-2">
+                <Col>
+                <Image src={rfour} width="90%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in shopping for clothing.
+                    Here's a future ad that may be generated for you in attempt to get you to buy more clothes. 
+                </p>
+                </Col>
+            </Row>
             )
             break;
-        case "black":
-            objToReturn.push(<p key={4}>black return</p>)
+        case "sports":
+            objToReturn.push
+            (
+            <Row key={4} className="analysis container-2">
+                <Col>
+                <Image src={rfive} width="70%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in sports.
+                    Here's a future ad that may be generated for you in attempt to get to 
+                    purchase tickets for a sporting event. 
+                </p>
+                </Col>
+            </Row>
+            )
             break;
-        case "blue":
-            objToReturn.push(<p key={5}>blue return</p>)
+        case "pets":
+            objToReturn.push
+            (
+            <Row key={5} className="analysis container-2">
+                <Col>
+                <Image src={rsix} width="70%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in shopping for pet items.
+                    Here's a future ad that may be generated for you in attempt to get you to buy more items
+                    for your pet. You may see the ad and remember that your dog is out of food, provoking
+                    you to buy the food from this particular seller.  
+                </p>
+                </Col>
+            </Row>
+            )
+            break;
+    }
+
+    switch(final_location){
+        case "east coast":
+            objToReturn.push
+            (
+            <Row key={6} className="analysis container-3">
+                <Col>
+                <p>Based on your interactions, you may located or interested on the east coast.
+                    Here's a travel destination that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rseven} width="70%"></Image>
+                </Col>
+            </Row>
+            )
+            break;
+        case "west coast":
+            objToReturn.push
+            (
+            <Row key={7} className="analysis container-3">
+                <Col>
+                <p>Based on your interactions, you may located or interested on the west coast.
+                    Here's a travel destination that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={reight} width="70%"></Image>
+                </Col>
+            </Row>
+            )
+            break;
+        case "south":
+            objToReturn.push(
+            <Row key={8} className="analysis container-3">
+                <Col>
+                <p>Based on your interactions, you may located or interested in the south.
+                    Here's a travel destination that may be reccomended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rnine} width="70%"></Image>
+                </Col>
+            </Row>
+            )
+            break;
+    }
+
+    switch(final_politics){
+        case "liberal":
+            objToReturn.push(
+            <Row key={9} className="analysis container-4">
+                <Col>
+                <Image src={rten} width="60%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, you may have liberal political ideologies. A news source like
+                    CNN may be reccomended for you as you are most likely to read their articles.  
+                </p>
+                </Col>
+            </Row>
+            )
+            break;
+        case "undetermined":
+            objToReturn.push(
+            <Row key={10} className="analysis container-4">
+                <Col>
+                <Image src={releven} width="60%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, we are unable to determine your political ideologies. A non-biased news source like
+                    Associated Press may be reccomended for you as you are most likely to read their articles.  
+                </p>
+                </Col>
+            </Row>
+            )
             break;
     }
 
@@ -140,35 +381,36 @@ const displayAnalysis = () => {
 
     return (
         <div>
-        <Container>
-            <p>You're scrolling through your instagram feed. Check the photos you would like.</p>
+        <Container className="content container-1">
+            <p>Imagine you're scrolling through your instagram feed, <br/>select the photo 
+                from the options below that you would like.</p>
             <Row>
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={one} width="65%"></Image>
                 <Form.Check
                 type="radio"
                 name="group1"
-                label="this one"
+                label=""
                 onChange={() => addImgs(0)}>
                 </Form.Check>
                 </Col>
 
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={two} width="60%"></Image>
                 <Form.Check
                 type="radio"
                 name="group1"
-                label="this one"
+                label=""
                 onChange={() => addImgs(1)}>
                 </Form.Check>
                 </Col>
 
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={three} width="75%"></Image>
                 <Form.Check
                 type="radio"
                 name="group1"
-                label="this one"
+                label=""
                 onChange={() => addImgs(2)}>
                 </Form.Check>
                 </Col>
@@ -176,35 +418,35 @@ const displayAnalysis = () => {
             </Row>
         </Container>
 
-        <Container>
-            <p>You're scrolling through a news site. Check the articles you would read.</p>
+        <Container className="content container-2">
+            <p>You're browsing through a news site. <br/> Which of these articles would you read?</p>
             <Row>
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={four} width="80%"></Image>
                 <Form.Check
                 type="radio"
                 name="group2"
-                label="this one"
+                label=""
                 onChange={() => addImgs(3)}>
                 </Form.Check>
                 </Col>
 
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={five} width="60%"></Image>
                 <Form.Check
                 type="radio"
                 name="group2"
-                label="this one"
+                label=""
                 onChange={() => addImgs(4)}>
                 </Form.Check>
                 </Col>
 
                 <Col>
-                <Image src={photo} width="90%" height="50%"></Image>
+                <Image src={six} width="80%"></Image>
                 <Form.Check
                 type="radio"
                 name="group2"
-                label="this one"
+                label=""
                 onChange={() => addImgs(5)}>
                 </Form.Check>
                 </Col>
@@ -212,15 +454,89 @@ const displayAnalysis = () => {
             </Row>
         </Container>
 
+        <Container className="content container-3">
+            <p>You find youself doing some online shopping. <br/> Of these items, which could you see yourself potentially buying?</p>
+            <Row>
+                <Col>
+                <Image src={seven} width="60%"></Image>
+                <Form.Check
+                type="radio"
+                name="group3"
+                label=""
+                onChange={() => addImgs(6)}>
+                </Form.Check>
+                </Col>
+
+                <Col>
+                <Image src={eight} width="70%"></Image>
+                <Form.Check
+                type="radio"
+                name="group3"
+                label=""
+                onChange={() => addImgs(7)}>
+                </Form.Check>
+                </Col>
+
+                <Col>
+                <Image src={nine} width="80%" ></Image>
+                <Form.Check
+                type="radio"
+                name="group3"
+                label=""
+                onChange={() => addImgs(8)}>
+                </Form.Check>
+                </Col>
+                
+            </Row>
+        </Container>
+
+        <Container className="content container-4">
+            <p>Time for some Netflix. <br/> Of these options, pick the one you would be most interested in watching.</p>
+            <Row>
+                <Col>
+                <Image src={ten} width="80%"></Image>
+                <Form.Check
+                type="radio"
+                name="group4"
+                label=""
+                onChange={() => addImgs(9)}>
+                </Form.Check>
+                </Col>
+
+                <Col>
+                <Image src={eleven} width="80%"></Image>
+                <Form.Check
+                type="radio"
+                name="group4"
+                label=""
+                onChange={() => addImgs(10)}>
+                </Form.Check>
+                </Col>
+
+                <Col>
+                <Image src={twelve} width="80%"></Image>
+                <Form.Check
+                type="radio"
+                name="group4"
+                label=""
+                onChange={() => addImgs(11)}>
+                </Form.Check>
+                </Col>
+                
+            </Row>
+        </Container>
+
+        <Container className="bttn">
         <Button variant="primary" type="submit" onClick={() => formSubmitPressed()}>
-            Submit
-         </Button> 
+                Submit
+        </Button> 
+        </Container>
 
        
         {formSubmitted &&
             
             <Container>
-                <p>Based on your browsing history, here's what we a media algorithm may reccomend to you</p>
+                <p className="btm-header">Based on your (simulated) browsing history, here's what the algorithm learned about you</p>
                 {displayAnalysis()}        
             </Container>
         }
