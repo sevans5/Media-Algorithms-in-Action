@@ -15,12 +15,14 @@ const Header = (props) => {
 
     const renderTooltip = (props) => (
         <Tooltip id="button-tooltip" {...props}>
-          For my final project in COMM 450, I wanted to explore how a user’s online presence 
-          allows data to be gathered that algorithms can then use to inconspicuously influence 
+          In this project, I explored how a user’s online presence allows data to be gathered that algorithms can then use to influence 
           that user’s future online behavior and the recommendations they receive. 
           <br/>
+          <br/>
           I have created an interactive demonstration of a (very) simplified version of how media algorithms work.
-          Follow the prompts below to get started. 
+          <br/>
+          <br/>
+          Follow the prompts below to get started.
         </Tooltip>
       );
       

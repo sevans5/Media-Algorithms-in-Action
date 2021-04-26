@@ -6,6 +6,8 @@
 
 .tooltip-inner {
     max-width: 600px !important; 
+    font-family: 'Courier New', Courier, monospace;
+    text-align: left;
 }
 
 .content {
@@ -21,6 +23,7 @@
 
 .container-2 {
     background-color: #F4ECD8;
+    width: 100%;
 
 }
 
@@ -49,5 +52,11 @@
 .analysis {
     padding-top: 25px;
     padding-bottom: 25px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.footer {
+    padding-top: 60px;
+    padding-bottom: 20px;
     font-family: 'Courier New', Courier, monospace;
 }

@@ -202,7 +202,7 @@ const displayAnalysis = () => {
             <Row key={0} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in happy content.
-                    Here's a future instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be reccomended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -217,7 +217,7 @@ const displayAnalysis = () => {
             <Row key={1} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in practical content.
-                    Here's a future instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be reccomended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -232,7 +232,7 @@ const displayAnalysis = () => {
             <Row key={2} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in entertainment content.
-                    Here's a future instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be reccomended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -252,8 +252,8 @@ const displayAnalysis = () => {
                 <Image src={rfour} width="90%"></Image>
                 </Col>
                 <Col>
-                <p>Based on your interactions, it seems that you are interested in shopping for clothing.
-                    Here's a future ad that may be generated for you in attempt to get you to buy more clothes. 
+                <p>Based on your interactions, it seems that you are interested in clothing.
+                    Here's an ad that may be generated for you in attempt to get you to buy more clothes. 
                 </p>
                 </Col>
             </Row>
@@ -268,7 +268,7 @@ const displayAnalysis = () => {
                 </Col>
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in sports.
-                    Here's a future ad that may be generated for you in attempt to get to 
+                    Here's an ad that may be generated for you in attempt to get to 
                     purchase tickets for a sporting event. 
                 </p>
                 </Col>
@@ -283,8 +283,8 @@ const displayAnalysis = () => {
                 <Image src={rsix} width="70%"></Image>
                 </Col>
                 <Col>
-                <p>Based on your interactions, it seems that you are interested in shopping for pet items.
-                    Here's a future ad that may be generated for you in attempt to get you to buy more items
+                <p>Based on your interactions, it seems that you are interested in pets.
+                    Here's an ad that may be generated for you in attempt to get you to buy more items
                     for your pet. You may see the ad and remember that your dog is out of food, provoking
                     you to buy the food from this particular seller.  
                 </p>
@@ -300,8 +300,9 @@ const displayAnalysis = () => {
             (
             <Row key={6} className="analysis container-3">
                 <Col>
-                <p>Based on your interactions, you may located or interested on the east coast.
-                    Here's a travel destination that may be reccomended for you. 
+                <p>Based on your interactions, you may be interested in or located on the east coast.
+                    Here's a travel destination ad that may be reccomended for you because you may 
+                    want to travel on the east coast. 
                 </p>
                 </Col>
                 <Col>
@@ -315,8 +316,9 @@ const displayAnalysis = () => {
             (
             <Row key={7} className="analysis container-3">
                 <Col>
-                <p>Based on your interactions, you may located or interested on the west coast.
-                    Here's a travel destination that may be reccomended for you. 
+                <p>Based on your interactions, you may be interested in or located on the west coast.
+                    Here's a travel destination ad that may be reccomended for you because you may 
+                    want to travel on the west coast. 
                 </p>
                 </Col>
                 <Col>
@@ -329,8 +331,9 @@ const displayAnalysis = () => {
             objToReturn.push(
             <Row key={8} className="analysis container-3">
                 <Col>
-                <p>Based on your interactions, you may located or interested in the south.
-                    Here's a travel destination that may be reccomended for you. 
+                <p>Based on your interactions, you may be interested in or located in the south.
+                    Here's a travel destination that may be reccomended for you because you may 
+                    want to travel to southern states like Florida. 
                 </p>
                 </Col>
                 <Col>
@@ -349,8 +352,8 @@ const displayAnalysis = () => {
                 <Image src={rten} width="60%"></Image>
                 </Col>
                 <Col>
-                <p>Based on your interactions, you may have liberal political ideologies. A news source like
-                    CNN may be reccomended for you as you are most likely to read their articles.  
+                <p>Based on your interactions, you may have liberal political ideologies. A tweet from a
+                    news source like CNN may be reccomended for you on your timeline as you are most likely to read their articles.  
                 </p>
                 </Col>
             </Row>
@@ -363,8 +366,9 @@ const displayAnalysis = () => {
                 <Image src={releven} width="60%"></Image>
                 </Col>
                 <Col>
-                <p>Based on your interactions, we are unable to determine your political ideologies. A non-biased news source like
-                    Associated Press may be reccomended for you as you are most likely to read their articles.  
+                <p>Based on your interactions, we are unable to determine your political ideologies. A tweet 
+                    from a non-biased news source like the Associated Press may be reccomended for you on your 
+                    timeline as you are most likely to read their articles.  
                 </p>
                 </Col>
             </Row>
@@ -382,7 +386,7 @@ const displayAnalysis = () => {
     return (
         <div>
         <Container className="content container-1">
-            <p>Imagine you're scrolling through your instagram feed, <br/>select the photo 
+            <p>Imagine you're scrolling through your instagram feed one morning, <br/>select the photo 
                 from the options below that you would like.</p>
             <Row>
                 <Col>
@@ -419,7 +423,7 @@ const displayAnalysis = () => {
         </Container>
 
         <Container className="content container-2">
-            <p>You're browsing through a news site. <br/> Which of these articles would you read?</p>
+            <p>You're taking an afternoon break by browsing through a news site. <br/> Which of these articles would you read?</p>
             <Row>
                 <Col>
                 <Image src={four} width="80%"></Image>
@@ -455,7 +459,7 @@ const displayAnalysis = () => {
         </Container>
 
         <Container className="content container-3">
-            <p>You find youself doing some online shopping. <br/> Of these items, which could you see yourself potentially buying?</p>
+            <p>Its later in the day and you find youself doing some online shopping. <br/> Of these items, which could you see yourself potentially buying?</p>
             <Row>
                 <Col>
                 <Image src={seven} width="60%"></Image>
@@ -491,7 +495,7 @@ const displayAnalysis = () => {
         </Container>
 
         <Container className="content container-4">
-            <p>Time for some Netflix. <br/> Of these options, pick the one you would be most interested in watching.</p>
+            <p>You end your night with some Netflix. <br/> Of these options, pick the one you would be most interested in watching.</p>
             <Row>
                 <Col>
                 <Image src={ten} width="80%"></Image>
@@ -536,7 +540,7 @@ const displayAnalysis = () => {
         {formSubmitted &&
             
             <Container>
-                <p className="btm-header">Based on your (simulated) browsing history, here's what the algorithm learned about you</p>
+                <h5 className="btm-header">Based on your (simulated) browsing history, <br/>here's what the algorithm learned about you</h5>
                 {displayAnalysis()}        
             </Container>
         }
