@@ -8,7 +8,6 @@ import Image from 'react-bootstrap/Image';
 import { useState } from 'react';
 
 import '../styles.css'
-import photo from '../assets/placeholder.jpeg'
 import one from '../assets/image 1.jpg'
 import two from '../assets/image 2.jpg'
 import three from '../assets/image 3.jpg'
@@ -37,6 +36,12 @@ import releven from '../assets/result 11.jpg'
 
 
 const Content = (props) => {
+
+// The const info defined below is a 
+// JSON array that holds the attributes for each media selection
+// For example, the first photo is a dog outside the South Building at UNC.
+// This photo is given the attributes of content = happy, interest = pets, 
+// location = the south, and politics = liberal
 
 const info = [
     {
@@ -129,25 +134,26 @@ const addImgs = (number) => {
         numbers = [9,10]
     }
 
-    // console.log("here")
+    // ensures each photo is only in the selection array once 
+    // for cases when a user reselects a different photo. 
+
     var temp = selectedImgIndexes
     for(var i = 0; i < numbers.length; i++){
         if(temp.includes(numbers[i])){
-            // Remove it!
             temp = temp.filter(function(item){
-                return item != numbers[i]
+                return item !== numbers[i]
             })
             
         }
     }
 
-    // Add it!
     temp.push(number)
     setSelectedImgIndexes(temp)
     console.log(temp)  
-    //console.log(selectedImgIndexes)
-
 }
+
+// displays the final analysis once the user has
+// hit the submit button at the bottom of the page
 
 const formSubmitPressed = () => {
     setFormSubmitted(true)
@@ -159,9 +165,10 @@ const displayAnalysis = () => {
     for(var i = 0; i < selectedImgIndexes.length; i++) {
         var selectedImg = info[selectedImgIndexes[i]]
         finalObjs.push(selectedImg)
-        console.log(`your color was ${selectedImg.color}`);
     }
 
+    // gathering each of the attributes that were present in 
+    // the user's selections 
 
     var s_content = finalObjs.reduce(function(sums, entry){
         sums[entry.content] = (sums[entry.content] || 0) + 1
@@ -183,17 +190,19 @@ const displayAnalysis = () => {
         return sums
     }, {});
 
+    // determining which category of each attribute was chosen the most 
+    // so it can be passed below in switch statements
+
     var final_content = Object.keys(s_content).reduce((a,b) => {return s_content[a] > s_content[b] ? a : b}) 
-    console.log(final_content)
 
     var final_interest = Object.keys(s_interest).reduce((a,b) => {return s_interest[a] > s_interest[b] ? a : b})
-    console.log(final_interest)
 
     var final_location = Object.keys(s_location).reduce((a,b) => {return s_location[a] > s_location[b] ? a : b}) 
-    console.log(final_location)
 
     var final_politics = Object.keys(s_politics).reduce((a,b) => {return s_politics[a] > s_politics[b] ? a : b})
-    console.log(final_politics)
+
+    // switch statement which displays the reccomended content
+    // based on the most commonly selected one, as calculated above
 
     switch(final_content){
         case "happy":
@@ -202,7 +211,7 @@ const displayAnalysis = () => {
             <Row key={0} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in happy content.
-                    Here's an instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be recommended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -217,7 +226,7 @@ const displayAnalysis = () => {
             <Row key={1} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in practical content.
-                    Here's an instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be recommended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -232,7 +241,7 @@ const displayAnalysis = () => {
             <Row key={2} className="analysis container-1">
                 <Col>
                 <p>Based on your interactions, it seems that you are interested in entertainment content.
-                    Here's an instagram post that may be reccomended for you. 
+                    Here's an instagram post that may be recommended for you. 
                 </p>
                 </Col>
                 <Col>
@@ -241,7 +250,25 @@ const displayAnalysis = () => {
             </Row>
             )
             break;
+        default:
+            objToReturn.push
+            (
+            <Row key={0} className="analysis container-1">
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in happy content.
+                    Here's an instagram post that may be recommended for you. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rone} width="50%"></Image>
+                </Col>
+            </Row>
+            )
+            break;
     }
+
+    // switch statement which displays the determined interest
+    // based on the most commonly selected one, as calculated above
 
     switch(final_interest){
         case "clothing":
@@ -292,7 +319,25 @@ const displayAnalysis = () => {
             </Row>
             )
             break;
+        default:
+            objToReturn.push
+            (
+            <Row key={3} className="analysis container-2">
+                <Col>
+                <Image src={rfour} width="90%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, it seems that you are interested in clothing.
+                    Here's an ad that may be generated for you in attempt to get you to buy more clothes. 
+                </p>
+                </Col>
+            </Row>
+            )
+            break;
     }
+
+    // switch statement which displays the determined location
+    // based on the most commonly selected one, as calculated above
 
     switch(final_location){
         case "east coast":
@@ -301,7 +346,7 @@ const displayAnalysis = () => {
             <Row key={6} className="analysis container-3">
                 <Col>
                 <p>Based on your interactions, you may be interested in or located on the east coast.
-                    Here's a travel destination ad that may be reccomended for you because you may 
+                    Here's a travel destination ad that may be recommended for you because you may 
                     want to travel on the east coast. 
                 </p>
                 </Col>
@@ -317,7 +362,7 @@ const displayAnalysis = () => {
             <Row key={7} className="analysis container-3">
                 <Col>
                 <p>Based on your interactions, you may be interested in or located on the west coast.
-                    Here's a travel destination ad that may be reccomended for you because you may 
+                    Here's a travel destination ad that may be recommended for you because you may 
                     want to travel on the west coast. 
                 </p>
                 </Col>
@@ -332,7 +377,7 @@ const displayAnalysis = () => {
             <Row key={8} className="analysis container-3">
                 <Col>
                 <p>Based on your interactions, you may be interested in or located in the south.
-                    Here's a travel destination that may be reccomended for you because you may 
+                    Here's a travel destination that may be recommended for you because you may 
                     want to travel to southern states like Florida. 
                 </p>
                 </Col>
@@ -342,7 +387,26 @@ const displayAnalysis = () => {
             </Row>
             )
             break;
+        default:
+            objToReturn.push
+            (
+            <Row key={6} className="analysis container-3">
+                <Col>
+                <p>Based on your interactions, you may be interested in or located on the east coast.
+                    Here's a travel destination ad that may be recommended for you because you may 
+                    want to travel on the east coast. 
+                </p>
+                </Col>
+                <Col>
+                <Image src={rseven} width="70%"></Image>
+                </Col>
+            </Row>
+            )
+            break;
     }
+
+    // switch statement which displays the determined political affliation
+    // based on the most commonly selected one, as calculated above
 
     switch(final_politics){
         case "liberal":
@@ -353,7 +417,7 @@ const displayAnalysis = () => {
                 </Col>
                 <Col>
                 <p>Based on your interactions, you may have liberal political ideologies. A tweet from a
-                    news source like CNN may be reccomended for you on your timeline as you are most likely to read their articles.  
+                    news source like CNN may be recommended for you on your timeline as you are most likely to read their articles.  
                 </p>
                 </Col>
             </Row>
@@ -367,8 +431,22 @@ const displayAnalysis = () => {
                 </Col>
                 <Col>
                 <p>Based on your interactions, we are unable to determine your political ideologies. A tweet 
-                    from a non-biased news source like the Associated Press may be reccomended for you on your 
+                    from a non-biased news source like the Associated Press may be recommended for you on your 
                     timeline as you are most likely to read their articles.  
+                </p>
+                </Col>
+            </Row>
+            )
+            break;
+        default:
+            objToReturn.push(
+            <Row key={9} className="analysis container-4">
+                <Col>
+                <Image src={rten} width="60%"></Image>
+                </Col>
+                <Col>
+                <p>Based on your interactions, you may have liberal political ideologies. A tweet from a
+                    news source like CNN may be recommended for you on your timeline as you are most likely to read their articles.  
                 </p>
                 </Col>
             </Row>
@@ -377,12 +455,9 @@ const displayAnalysis = () => {
     }
 
     return objToReturn
-    //let max = Math.max(s.content)
-    //console.log(max)
-    
 }
  
-
+    // the main content of the page
     return (
         <div>
         <Container className="content container-1">
@@ -499,6 +574,8 @@ const displayAnalysis = () => {
             <Row>
                 <Col>
                 <Image src={ten} width="80%"></Image>
+                <p className="tv">Fiercely independent single mom Lorelai raises gifted, 
+                    Ivy League-bound daughter Rory amid a continual stream of quick-witted repartee.</p>
                 <Form.Check
                 type="radio"
                 name="group4"
@@ -509,6 +586,9 @@ const displayAnalysis = () => {
 
                 <Col>
                 <Image src={eleven} width="80%"></Image>
+                <p className="tv">This docuseries chronicles the rise of superstar 
+                Michael Jordan and the 1990s Chicago Bulls, with unaired footage 
+                from an unforgettable 1997-98 season.</p>
                 <Form.Check
                 type="radio"
                 name="group4"
@@ -519,6 +599,9 @@ const displayAnalysis = () => {
 
                 <Col>
                 <Image src={twelve} width="80%"></Image>
+                <p className="tv">In 1987 New York, LGBTQ ball fixture Blanca 
+                starts her own house, soon becoming mother to a gifted dancer 
+                and a sex worker in love with a yuppie client.</p>
                 <Form.Check
                 type="radio"
                 name="group4"
@@ -536,15 +619,17 @@ const displayAnalysis = () => {
         </Button> 
         </Container>
 
-       
         {formSubmitted &&
             
             <Container>
-                <h5 className="btm-header">Based on your (simulated) browsing history, <br/>here's what the algorithm learned about you</h5>
+                <h5 className="btm-header">Based on your (simulated) browsing history, <br/>here's what the algorithm learned about you:</h5>
+                <p className="btm-txt">These results are not based on any one specific action above, 
+                    but a conglomeration of all your actions. This illustrates how 
+                    media algorithms pick up data over many different instances and
+                    use <em>all</em> of this data to influence your online activity. </p>
                 {displayAnalysis()}        
             </Container>
         }
-
 
         </div>
     )
