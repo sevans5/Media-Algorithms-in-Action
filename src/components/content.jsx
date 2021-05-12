@@ -202,7 +202,7 @@ const displayAnalysis = () => {
     var final_politics = Object.keys(s_politics).reduce((a,b) => {return s_politics[a] > s_politics[b] ? a : b})
 
     // switch statement which displays the reccomended content
-    // based on the most commonly selected one, as calculated above
+    // based on the most commonly selected one, as calculated above.
 
     switch(final_content){
         case "happy":
@@ -268,7 +268,7 @@ const displayAnalysis = () => {
     }
 
     // switch statement which displays the determined interest
-    // based on the most commonly selected one, as calculated above
+    // based on the most commonly selected one, as calculated above.
 
     switch(final_interest){
         case "clothing":
@@ -337,7 +337,7 @@ const displayAnalysis = () => {
     }
 
     // switch statement which displays the determined location
-    // based on the most commonly selected one, as calculated above
+    // based on the most commonly selected one, as calculated above.
 
     switch(final_location){
         case "east coast":
@@ -406,7 +406,7 @@ const displayAnalysis = () => {
     }
 
     // switch statement which displays the determined political affliation
-    // based on the most commonly selected one, as calculated above
+    // based on the most commonly selected one, as calculated above.
 
     switch(final_politics){
         case "liberal":
